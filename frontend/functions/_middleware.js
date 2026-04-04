@@ -42,7 +42,7 @@ export async function onRequest(context) {
 
     // 如果没有配置 Service Binding，回退到默认后端 URL
     // 注意：配置 Service Binding 后，这段代码不会执行
-    const backendUrl = 'https://memos-api.zxd.im' + url.pathname + url.search;
+    const backendUrl = 'https://cfmemos-api.jxdd.eu.org' + url.pathname + url.search;
     const response = await fetch(backendUrl, {
       method: request.method,
       headers: request.headers,
@@ -53,7 +53,7 @@ export async function onRequest(context) {
     if (response.status === 301 || response.status === 302) {
       const location = response.headers.get('Location');
       if (location && location.startsWith('/')) {
-        const redirectUrl = 'https://memos-api.zxd.im' + location;
+        const redirectUrl = 'https://cfmemos-api.jxdd.eu.org' + location;
         return fetch(redirectUrl, {
           method: request.method,
           headers: request.headers,
